@@ -1,25 +1,29 @@
 import React from 'react';
-import logo from './logo.svg';
+import { BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import './App.css';
+import LandingHome from './components/webComponents/landingPage/LandingHome';
+import MainLayout from './components/webComponents/musicHome/librarySection/MusicHomeMainLayout';
+import LibraryLayout from './components/webComponents/musicHome/librarySection/MusicHomeLibraryLayout';
+import Upload from './components/webComponents/upload/UploadFormView';
+import AudioPlayer from './components/webComponents/musicHome/librarySection/AudioPlayer';
+import PlayerState from './context/PlayerState';
+import AudioController from './components/webComponents/musicHome/librarySection/AudioController';
 
 function App() {
   return (
+    <Router>
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <PlayerState>
+      <Switch>
+        <Route exact path="/" component={LandingHome} />
+        <Route exact path="/musicHome" component={MainLayout} />
+        <Route exact path="/musicHome/library" component={LibraryLayout} />
+        <Route exact path="/musicHome/library/upload" component={Upload} />
+        <Route exact path="/musicHome/library/controller" component={AudioController} />
+      </Switch>
+      </PlayerState>
     </div>
+    </Router>
   );
 }
 
