@@ -1,11 +1,14 @@
 import React from 'react'
 import './SongRow.css';
 import {Grid, Paper} from '@material-ui/core';
+import Aux from '../../../hoc/Auxiliary';
+import { useContext } from 'react';
+import playerContext from '../../../../context/playerContext';
 
 
-function SongRow({ track="test" }) {
+function SongRow(props) {
     return (
-
+        // <Aux>
         <Grid container className="songRowLayout">
             <Grid item xs={10}>
             <div className="songRow">
@@ -16,15 +19,16 @@ function SongRow({ track="test" }) {
                 alt=""
             />
             
-            {/* <div className="songRow__infoAndDuration"> */}
+            <div className="songRow__infoAndDuration">
             <div className="songRow__info">
-                {/* <h1>{track.name}</h1> */}
-                <h1>The Beaten Path</h1>
+                <h1>{props.song}</h1>
+                {/* <h1>The Beaten Path</h1> */}
                 <p>
-                    {/* {track.artists.map((artist) => artist.name).join(", ")} -{" "}
-                    {track.album.name} */}
-                    Taylor Swift
+                    {/* {track.artists.map((artist) => artist.name).join(", ")} -{" "} */}
+                    {/* {track.album.name} */}
+                    {props.singer}
                 </p>
+            </div>
             </div>
             </div>
             </Grid>
@@ -32,6 +36,7 @@ function SongRow({ track="test" }) {
                 <p>3:42</p>
             </Grid>
         </Grid>
+        // </Aux>
     )
 }
 

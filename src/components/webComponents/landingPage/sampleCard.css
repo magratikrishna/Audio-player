@@ -92,7 +92,7 @@ img {
 
 .sample__front .sample__name {
     text-align: start;
-    margin: .1em 0;
+    margin: .2em 0;
     margin-left: 0;
     font-size: 15px;
     
@@ -125,13 +125,13 @@ img {
 .sample__back {
     opacity: 0;
     position: absolute;
-    top: 48%;
+    top: 51%;
     left: 0;
     right: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: .2em;
+    gap: .3em;
     transform: translateY(35%);
     color: white;
 }
@@ -193,15 +193,15 @@ img {
     border-radius: var(--br);
 }
 
-.sample__game:hover .sampleCard_rank {
-    transform: translate(112%, -40%);
+.sample__game:hover .sampleCard__rank {
+    transform: translate(105%, -9%);
     background: var(--clr-secondary);
     /* transition: var(--sampleTransition); */
     /* transform: var(--sampleTransition); */
 }
 
 .sample__game:hover .sample__front {
-    transform: translateY(-30%) scale(.8);
+    transform: translateY(-28%) scale(.8);
 }
 
 .sample__game:hover .sample__front .sample__name {

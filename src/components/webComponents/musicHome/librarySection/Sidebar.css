@@ -28,11 +28,10 @@
     color: rgb(6,233,68);
 }
 
-
 .sidebar__songlist {
-    overflow-y: scroll;
     height: 271px;
-    overflow: hidden;
+    /* overflow-y: scroll; */
+    overflow: scroll;
 }
 
 .sidebarSongContainer {
@@ -44,11 +43,16 @@
     margin: 0;
     list-style: none;
     padding: 10px;
+    margin-top: -15px;
 }
 
 .loi li {
-    padding: 4px 0;
+    padding: 0px 0;
     font-weight: 450;
+}
+
+.sidebar__songrow__icon {
+    transform: scale(0.8);
 }
 
 .playlist {
@@ -63,16 +67,24 @@
     background: green;
 }
 
-  
-  .pltext {
+.pltext {
     padding: 5px;
-  }
-  
-  .songlist {
+}
+
+.songlist {
     overflow-y: scroll;
     height: 271px;
-  }
-  
-  .song {
+}
+
+.song {
     padding: 10px;
-  }
+}
+
+.sidebar__song__row {
+    display: inline;
+    justify-content: flex-start;
+    align-items: center;
+}
+.sidebar__song__row:hover {
+    color: rgb(6,253,68);
+}

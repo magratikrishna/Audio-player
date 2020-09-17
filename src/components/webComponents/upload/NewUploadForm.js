@@ -16,7 +16,7 @@ class NewUploadForm extends Component {
       currentItem: {
         songTitle: '',
         singerName: '',
-        // singerRevPercent: '',
+        singerRevPercent: '',
         // singerPublicKey: '',
         // producerName: '',
         // producerRevPercent: '',
@@ -31,38 +31,37 @@ class NewUploadForm extends Component {
         // singerImage: '',
         // producerImage: '',
         // writerImage: '',
-        // date: Date.now()
+        date: Date.now()
     }
   }
 }
 
   // postDataHandler = () => {
-  //   const data = {
-  //     songTitle: this.state.songTitle,
-  //     costPerDownload: this.state.costPerDownload,
-  //     costPerStream: this.state.costPerStream,
-  //     singerName: this.state.singerName,
-  //     singerRevPercent: this.state.singerRevPercent,
-  //     singerPublicKey: this.state.singerPublicKey,
-  //     producerName: this.state.producerName,
-  //     producerRevPercent: this.state.producerRevPercent,
-  //     producerPublicKey: this.state.producerPublicKey,
-  //     writerName: this.state.writerName,
-  //     writerRevPercent: this.state.writerRevPercent,
-  //     writerPublicKey: this.state.writerPublicKey,
-  //     track: this.state.track,
-  //     songImage: this.state.songImage,
-  //     singerImage: this.state.singerImage,
-  //     producerImage: this.state.producerImage,
-  //     writerImage: this.state.writerImage,
-  //   };
+    // const data = {
+      // songTitle: this.state.songTitle,
+      // costPerDownload: this.state.costPerDownload,
+      // costPerStream: this.state.costPerStream,
+      // singerName: this.state.singerName,
+      // singerRevPercent: this.state.singerRevPercent,
+      // singerPublicKey: this.state.singerPublicKey,
+      // producerName: this.state.producerName,
+      // producerRevPercent: this.state.producerRevPercent,
+      // producerPublicKey: this.state.producerPublicKey,
+      // writerName: this.state.writerName,
+      // writerRevPercent: this.state.writerRevPercent,
+      // writerPublicKey: this.state.writerPublicKey,
+      // track: this.state.track,
+      // songImage: this.state.songImage,
+      // singerImage: this.state.singerImage,
+      // producerImage: this.state.producerImage,
+      // writerImage: this.state.writerImage,
+    // };
 
-  //   // URL to send data to the database
-  //   axios.post('https://jsonplaceholder.typicode.com/posts', data)
-  //     .then(response => {
-  //       console.log(response);
-  //     });
-
+    // URL to send data to the database
+    // axios.post('https://jsonplaceholder.typicode.com/posts', data)
+      // .then(response => {
+        // console.log(response);
+      // });
   // }
 
       handleChange =(e) => {
@@ -78,20 +77,20 @@ class NewUploadForm extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    const newItem = this.state.currentItem;
-    console.log(newItem);
-    if((newItem.songTitle !== "") &&
-      (newItem.costPerDownload !== "")) {
-        const newItems = [...this.state.items, newItem];
-        this.setState ({
-          items: newItems,
-          currentItem: {
-            songTitle: '',
-            key: ''
-          }
-        })
-      }
-  };
+  //   const newItem = this.state.currentItem;
+  //   console.log(newItem);
+  //   if((newItem.songTitle !== "") &&
+  //     (newItem.costPerDownload !== "")) {
+  //       const newItems = [...this.state.items, newItem];
+  //       this.setState ({
+  //         items: newItems,
+  //         currentItem: {
+  //           songTitle: '',
+  //           key: ''
+  //         }
+  //       })
+  //     }
+    };
 
   render() {
 
@@ -141,7 +140,7 @@ class NewUploadForm extends Component {
               />
             </div>
 
-            <div className="title">
+            {/* <div className="title">
               <label htmlFor="singerPublicKey">Singer public key</label>
               <input 
                 type="text"
@@ -276,13 +275,18 @@ class NewUploadForm extends Component {
                 // noValidate
                 onChange={this.handleChange}
               />
-            </div>
+            </div> */}
 
             <div className="createAccount">
               <button 
                 type="submit"
                 // onClick={this.postDataHandler}
                 // onClick={() => this.props.onAddSong(this.state.songTitle, this.state.singerName)}
+                // songAdded IS HANDLED IN ALL SONGS FILE
+                // onClick={() => this.props.songAdded(this.state.currentItem.songTitle, this.state.currentItem.singerName, this.state.currentItem.singerRevPercent)}
+                onClick={() => this.props.onAddedSong(this.state.currentItem.songTitle,
+                                                      this.state.currentItem.singerName,
+                                                      this.state.currentItem.singerRevPercent)}
               >
                 Upload Now
               </button>
@@ -299,10 +303,9 @@ class NewUploadForm extends Component {
 
 const mapDispatchToProps = dispatch => {
   return {
-    onAddSong: (songTitle, singerName) => dispatch({ type: actionTypes.ADD_SONG, songData:{
-                                                        title: this.state.currentItem.songTitle,
-                                                        singerName: this.state.currentItem.singerName
-                                                      }})
+    onAddedSong: (songTitle, singerName, singerRevPercent) => dispatch ({
+      type:'ADD_SONG', songData:{songTitle: songTitle, singerName: singerName, singerRevPercent: singerRevPercent}
+    })
   }
 }
 

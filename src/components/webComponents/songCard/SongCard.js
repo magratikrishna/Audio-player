@@ -13,6 +13,7 @@ import { Grid, Tooltip } from '@material-ui/core';
 import GroupAvatars from './AvatarGroup';
 import Aux from '../../hoc/Auxiliary';
 import Modal from './modal/Modal';
+import { FavoriteOutlined } from '@material-ui/icons';
 
 class SongCard extends Component {
     constructor(props){
@@ -47,12 +48,12 @@ class SongCard extends Component {
 
         <div className="front">
             <img className="thumbnail" src="https://i.pinimg.com/originals/bc/8c/37/bc8c375f43fe97c0cb43818ebe3436bb.jpg" alt="" />
-            <h3 className="name">The Beaten Path</h3>
-            {/* <h3 className="name">{this.props.title}</h3> */}
+            {/* <h3 className="name">The Beaten Path</h3> */}
+            <h3 className="name">{this.props.songTitle}</h3>
             <Grid container className="stats__streamers">
             <Grid item xs={8} className="stats">
                 <TimerIcon className="update__timer"/>
-                <p>5 days ago</p>
+            <p>5 days ago</p>
             </Grid>
             <Grid item xs={4} className="front__avatars">
                 {/* <p> 29 days ago</p> */}
@@ -83,7 +84,12 @@ class SongCard extends Component {
                 <Tooltip title="play">
                     <PlayCircleFilledWhiteIcon />
                 </Tooltip>
-                </div>                
+                </div>    
+                <div className="card__streamer1">
+                <Tooltip title="add to favourite">
+                    <FavoriteIcon />
+                </Tooltip>
+                </div>            
                 <div className="card__streamer1">
                 <Tooltip title="play">
                     <QueueIcon />

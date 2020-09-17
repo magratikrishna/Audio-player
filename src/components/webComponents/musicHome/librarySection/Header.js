@@ -3,7 +3,7 @@ import './Header.css';
 import SearchIcon from "@material-ui/icons/Search";
 import { Avatar } from "@material-ui/core";
 
-function GraphicsHeader() {
+function Header() {
     return (
         <div className="header">
             <div className="header__left">
@@ -21,4 +21,4 @@ function GraphicsHeader() {
     )
 }
 
-export default GraphicsHeader;
+export default Header;

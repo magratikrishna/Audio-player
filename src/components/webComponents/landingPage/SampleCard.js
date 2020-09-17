@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import './sampleCard.css';
 
-import PlayCircleFilledIcon from '@material-ui/icons/PlayCircleFilled';
 import CloudDownloadIcon from '@material-ui/icons/CloudDownload';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
@@ -80,9 +79,14 @@ class SongCard extends Component {
                 <Tooltip title="play">
                     <PlayCircleFilledWhiteIcon />
                 </Tooltip>
+                </div> 
+                <div className="sample__card__streamer2">
+                <Tooltip title="add to favourite">
+                    <FavoriteIcon />
+                </Tooltip>
                 </div>                
                 <div className="sample__card__streamer1">
-                <Tooltip title="play">
+                <Tooltip title="add to queue">
                     <QueueIcon />
                 </Tooltip>
                 </div>

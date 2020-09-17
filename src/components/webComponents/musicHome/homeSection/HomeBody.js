@@ -19,5 +19,4 @@ class HomeBody extends Component {
         )
     }
 }
-
 export default HomeBody;

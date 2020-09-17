@@ -3,9 +3,8 @@ import {Grid, Typography, CssBaseline, makeStyles, Container} from '@material-ui
 import { connect } from 'react-redux';
 import SongCard from '../../songCard/SongCard';
 import SortIcon from '@material-ui/icons/Sort';
-import MoreVertIcon from '@material-ui/icons/MoreVert';
 import './AllSong.css';
-import * as actionTypes from '../../../../store/actions';
+// import * as actionTypes from '../../../../store/actions';
 import NewUploadForm from '../../upload/NewUploadForm';
 
 const useStyles = makeStyles(theme => ({
@@ -44,7 +43,7 @@ const useStyles = makeStyles(theme => ({
 
 // const cards = [1, 2, 3, 4, 5, 6, 7, 8];
 
-function AllSongs() {
+function AllSongs(props) {
   const classes = useStyles();
 
   return (
@@ -56,6 +55,7 @@ function AllSongs() {
         </div>
         <Container className={classes.cardGrid} maxWidth="lg">
           {/* End hero unit */}
+
           <Grid container className="allSong__sort">
           <Grid item sm={10} >
             <Typography variant="h4" align="left" color="textinherit" gutterBottom style={{fontFamily:"Poppins"}}>
@@ -75,9 +75,9 @@ function AllSongs() {
             ))}
         </Grid> */}
         {/* <NewUploadForm songAdded={this.props.onAddedSong} /> */}
-        {/* <Grid container spacing={4}>
-          {this.props.songs.map(song => (
-            <Grid item key={song.id} xs={12} sm={4} md={3}>
+        <Grid container spacing={4}>
+          {props.sgs.map(song => (
+            <Grid item xs={12} sm={4} md={3}>
             <SongCard 
               key={song.id}
               songTitle={song.songTitle}
@@ -85,7 +85,12 @@ function AllSongs() {
             />
             </Grid>
           ))}
-        </Grid> */}
+        </Grid>
+
+        <Grid container >
+            <NewUploadForm songAdded={props.onAddedSong}/>
+        </Grid>
+
         </Container>
     </main>
     </React.Fragment>
@@ -94,16 +99,16 @@ function AllSongs() {
 
 const mapStateToProps = state => {
   return {
-    songs : state.songs
+    sgs : state.songs
   };
 };
 
-const mapDispatchToProps = dispatch => {
-  return {
-    onAddedSong: (songTitle, singerName) => dispatch ({
-      type: "ADD_SONG", songData: {title: songTitle, singerName: singerName}
-    })
-  }
-}
+// const mapDispatchToProps = dispatch => {
+//   return {
+//     onAddedSong: (songTitle, singerName, singerRevPercent) => dispatch ({
+//       type:'ADD_SONG', songData: {songTitle: songTitle, singerName: singerName, singerRevPercent: singerRevPercent}
+//     })
+//   }
+// }
 
-export default connect(mapStateToProps, mapDispatchToProps)(AllSongs);
+export default connect(mapStateToProps)(AllSongs);

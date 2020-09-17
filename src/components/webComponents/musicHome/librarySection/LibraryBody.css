@@ -44,7 +44,7 @@
 }
 
 .library__body__shuffle {
-  font-size: 65px !important;
+  font-size: 50px !important;
   margin-left: 50px;
   margin-top: 10px;
   margin-bottom: 20px;
@@ -63,6 +63,9 @@
   color: green;
 }
 
+.library__bodySong__sortIcon {
+  transform: scale(1.2);
+}
 .library__bodySong__sortIcon :hover{
   transition: 100ms transform ease-in;
   transform: scale(1.2);
@@ -76,3 +79,17 @@
 .library__body__infoText > p {
   font-size: 14px;
 }
+
+
+.libraryBody__loi {
+  margin: 0;
+  list-style: none;
+  padding-left: 8px;
+  padding-right: 8px;
+  /* margin-top: -15px; */
+}
+
+/* .sidebarSongContainer {
+  cursor: pointer;
+  user-select: none;
+} */

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './Sidebar.css';
 import SidebarOption from './SidebarOption';
 import PlayForWorkIcon from '@material-ui/icons/PlayForWork';
@@ -12,9 +12,9 @@ import IconButton from "@material-ui/core/IconButton";
 // import Playlist from '../playlist/Playlist'
 import applogo from '../../../../assets/applogo.png';
 import Aux from '../../../hoc/Auxiliary';
-import MusicHomeMainLayout from './MusicHomeMainLayout';
 import CloudUploadIcon from '@material-ui/icons/CloudUpload';
-import Playlist from './Playlist';
+
+import {Grid,Container} from '@material-ui/core';
 
 import { useContext } from 'react'
 import playerContext from '../../../../context/playerContext';
@@ -79,14 +79,16 @@ function Sidebar() {
                     {/* <PlayForWorkIcon /> */}
                 </strong>
                 <hr />
-
-            <div className="sidebar__songlist" style={{display:"flex", justifyContent:"flex-start"}}>
+                {/* <SidebarSongRow /> */}
+            <div className="sidebar__songlist">
                 <ul className="loi">
                 {
                     songs.map((song, i) =>
                     <li className={'sidebarSongContainer' + (currentSong === i ? 'selected' : '')} key={i} onClick={() => { SetCurrent(i); }} >
-                        <MusicNoteIcon />
-                        <span className="song" style={{fontSize: "14px"}}>{song[0]}</span>
+                        <Grid container className="sidebar__song__row">
+                            <MusicNoteIcon className="sidbar__songrow__icon"/>
+                            <span className="song" style={{fontSize: "14px"}}>{song[0]}</span>
+                        </Grid>
                     </li>
                     )
                 }

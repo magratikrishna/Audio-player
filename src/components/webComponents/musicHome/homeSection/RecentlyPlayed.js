@@ -1,6 +1,7 @@
 import React from 'react';
-import {Grid, Typography, CssBaseline, makeStyles, Container, Divider, Button} from '@material-ui/core';
-import SongCard from '../../songCard/SongCard';
+import {Grid, Typography, CssBaseline, makeStyles, Container } from '@material-ui/core';
+import SampleCard from '../../landingPage/SampleCard';
+
 const useStyles = makeStyles(theme => ({
   icon: {
     marginRight: theme.spacing(2),
@@ -55,8 +56,8 @@ function RecentlyPlayed() {
             </Typography>
           <Grid container spacing={4}>
             {cards.map(card => (
-              <Grid item key={card} xs={12} sm={4} md={3}>
-                <SongCard />
+              <Grid item xs={12} sm={4} md={3}>
+                <SampleCard />
               </Grid>
             ))}
           </Grid>

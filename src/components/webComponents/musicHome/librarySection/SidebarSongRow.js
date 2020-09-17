@@ -38,8 +38,8 @@ import './SidebarSongRow.css';
 function SidebarSongRow({ track="test" }) {
     return (
         <div className="sidebarSongRow">
-            <h1>{track.name}</h1>
-            {/* <p>Mayalu timi kata xau</p> */}
+            {/* <h1>{track.name}</h1> */}
+            <p>Mayalu timi kata xau</p>
         </div>
     )
 }

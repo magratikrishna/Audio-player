@@ -8,9 +8,13 @@ import CloudDownloadIcon from '@material-ui/icons/CloudDownload';
 import { Tooltip } from '@material-ui/core';
 // import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
 import SongRow from './SongRow'
-import Playlist from './Playlist';
+// import Playlist from './Playlist';
+import { useContext } from 'react';
+import playerContext from '../../../../context/playerContext';
+
 
 function Body() {
+    const { SetCurrent, currentSong, songs } = useContext(playerContext)
     return (
         <div className="library__body">
             <Header />
@@ -42,12 +46,19 @@ function Body() {
             {/* {discover_weekly?.tracks.items.map(item => (
                 <SongRow track={item.track} />
             ))} */}
-            <SongRow />
-            <SongRow />
-            <SongRow />
-            <SongRow />
-            <SongRow />
-            <SongRow />
+            <ul className="libraryBody__loi">
+            {
+                songs.map((song, i) =>
+                <li className={'librarySongContainer' + (currentSong === i ? 'selected' : '')} key={i} onClick={() => { SetCurrent(i); }} >
+                    <SongRow
+                        className={'sidebarSongContainer' + (currentSong === i ? 'selected' : '')} key={i} onClick={() => { SetCurrent(i); }}
+                        song={song[0]}
+                        singer={song[1]}
+                    />
+                </li>
+                )
+            }
+            </ul>
             </div>
             {/* <Playlist /> */}
         
